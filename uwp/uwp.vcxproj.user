@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DebuggerFlavor>UWPRemoteDebugger</DebuggerFlavor>
+    <DebuggerMachineName>XBOX</DebuggerMachineName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DebuggerFlavor>UWPRemoteDebugger</DebuggerFlavor>
+    <DebuggerMachineName>XBOX</DebuggerMachineName>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Source>C:\Users\danwo\Documents\racers.png</Source>
+    <SmallTileSource>C:\Users\danwo\Documents\racers.png</SmallTileSource>
+    <MediumTileSource>C:\Users\danwo\Documents\racers.png</MediumTileSource>
+    <WideTileSource>C:\Users\danwo\Documents\racers.png</WideTileSource>
+    <LargeTileSource>C:\Users\danwo\Documents\racers.png</LargeTileSource>
+    <AppIconSource>C:\Users\danwo\Documents\racers.png</AppIconSource>
+    <SplashScreenSource>C:\Users\danwo\Documents\racers.png</SplashScreenSource>
+    <PackageLogoSource>C:\Users\danwo\Documents\racers.png</PackageLogoSource>
+    <UapAppxPackageBuildMode>SideloadOnly</UapAppxPackageBuildMode>
+    <AppxShowAllApps>False</AppxShowAllApps>
+    <AppxBuildConfigurationSelection>x64</AppxBuildConfigurationSelection>
+    <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
+  </PropertyGroup>
+</Project>
