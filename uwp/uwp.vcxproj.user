@@ -5,7 +5,7 @@
     <DebuggerMachineName>XBOX</DebuggerMachineName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <DebuggerFlavor>UWPRemoteDebugger</DebuggerFlavor>
+    <DebuggerFlavor>AppHostLocalDebugger</DebuggerFlavor>
     <DebuggerMachineName>XBOX</DebuggerMachineName>
   </PropertyGroup>
   <PropertyGroup>
