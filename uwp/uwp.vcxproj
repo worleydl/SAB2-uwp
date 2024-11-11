@@ -222,11 +222,11 @@
 	                    libglfw3dll.a;
 	                    libopenal.dll.a;
 	                    SOIL.lib;
+	                    libogg.dll.a;
 	                    libvorbis.dll.a;
 	                    libvorbisfile.dll.a;
 	                    $(SolutionDir)\x64\Release\libuwp\libuwp.lib;
 	                    G:\dev\uwp\sdl-vanilla\VisualC-WinRT\x64\Release\SDL-UWP\SDL2.lib;
-	                    onecore.lib;
 	                    windowsapp.lib;
 			    d3d12.lib;dxgi.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)mingw-deps\lib;%(AdditionalLibraryDirectories); $(VCInstallDir)\lib\store\amd64; $(VCInstallDir)\lib\amd64</AdditionalLibraryDirectories>
@@ -249,12 +249,18 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Link>
       <AdditionalDependencies>
-			    G:\dev\uwp\sdl-vanilla\VisualC-WinRT\x64\Release\SDL-UWP\SDL2.lib;
-			    G:\dev\uwp\Commander-Genius\build_release\src\libCGenius.dll.a;
+                            opengl32.lib;
+	                    libglfw3dll.a;
+	                    libopenal.dll.a;
+	                    SOIL.lib;
+	                    libogg.dll.a;
+	                    libvorbis.dll.a;
+	                    libvorbisfile.dll.a;
 	                    $(SolutionDir)\x64\Release\libuwp\libuwp.lib;
+	                    G:\dev\uwp\sdl-vanilla\VisualC-WinRT\x64\Release\SDL-UWP\SDL2.lib;
 	                    windowsapp.lib;
 			    d3d12.lib;dxgi.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories); $(VCInstallDir)\lib\store\amd64; $(VCInstallDir)\lib\amd64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)mingw-deps\lib;%(AdditionalLibraryDirectories); $(VCInstallDir)\lib\store\amd64; $(VCInstallDir)\lib\amd64</AdditionalLibraryDirectories>
     </Link>
     <ClCompile>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>

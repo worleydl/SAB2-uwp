@@ -158,7 +158,9 @@ ALuint AudioMaster::loadOGG(const char* fileName)
     vorbis_info* pInfo;
     OggVorbis_File oggFile;
 
-    ov_open(fp, &oggFile, NULL, 0);
+    //ov_open(fp, &oggFile, NULL, 0);
+    ov_open_callbacks(fp, &oggFile, NULL, 0, OV_CALLBACKS_DEFAULT);
+
 
     pInfo = ov_info(&oggFile, -1);
 
