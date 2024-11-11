@@ -140,6 +140,7 @@ int Display::createDisplay()
     glEnable(GL_MULTISAMPLE);
 
     //Center the window
+/*
     if (!Global::useFullscreen)
     {
         const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
@@ -156,6 +157,7 @@ int Display::createDisplay()
             glfwSetWindowPos(Display::window, xpos, ypos);
         }
     }
+*/
 
     //glfwGetWindowAttrib(window, GLFW_SAMPLES);
     //printf("samples:   %d\n", glfwGetWindowAttrib(window, GLFW_SAMPLES));

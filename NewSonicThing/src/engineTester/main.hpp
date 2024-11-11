@@ -289,4 +289,8 @@ public:
     static void performanceAnalysisReport();
     #endif
 };
+
+namespace SAB2 {
+    int ExternalEntry(int argc, char** argv);
+}
 #endif

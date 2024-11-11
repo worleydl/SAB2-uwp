@@ -123,6 +123,7 @@ void AudioMaster::updateListenerData(Vector3f* eye, Vector3f* target, Vector3f* 
 ALuint AudioMaster::loadOGG(const char* fileName)
 {
     FILE* fp = nullptr;
+        return AL_NONE;
 
     #ifdef _WIN32
     int er = fopen_s(&fp, (Global::pathToEXE+fileName).c_str(), "rb");
