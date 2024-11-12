@@ -145,7 +145,7 @@ GLuint Fbo::createMultisampleColorAttatchment(int attachment)
 {
     glGenRenderbuffers(1, &colorBuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, colorBuffer);
-    glRenderbufferStorageMultisample(GL_RENDERBUFFER, Display::AA_SAMPLES, GL_RGBA8, width, height);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_RGBA8, width, height);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, attachment, GL_RENDERBUFFER, colorBuffer);
     return colorBuffer;
 }
@@ -155,7 +155,7 @@ void Fbo::createDepthBufferAttachment()
     glGenRenderbuffers(1, &depthBuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, depthBuffer);
     
-    if (!multisampleAndMultiTarget)
+    if (!multisampleAndMultiTarget || true)
     {
         glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, width, height); //depth bits
     }
