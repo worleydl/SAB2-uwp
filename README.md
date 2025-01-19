@@ -26,6 +26,15 @@ The game contains 20 levels, each with 4 different missions.
 
 # How to compile
 
+## Windows UWP
+
+Same as Windows, however most dependencies are sourced from mingw with the exception of:
+
+- SDL-UWP: Used for input mapping and general event handler wrapping on UWP (See SDL-UWP project inside VisualC-WinRT folder, SDL2 only)
+- glfw-uwp: My fork of glfw for UWP (this currently must be built in mingw if you'd like to build your own)
+
+Game files have been configured to load from `E:\sab2\` on this fork.
+
 ## Windows
 
 1. [Download](https://github.com/TurtleMan64/SAB2/archive/refs/heads/master.zip) source code as zip.
