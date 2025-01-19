@@ -32,6 +32,7 @@ Same as Windows, however most dependencies are sourced from mingw with the excep
 
 - SDL-UWP: Used for input mapping and general event handler wrapping on UWP (See SDL-UWP project inside VisualC-WinRT folder, SDL2 only)
 - glfw-uwp: My fork of glfw for UWP (this currently must be built in mingw if you'd like to build your own)
+- Aerisarn's mesa-uwp fork for wrapping OpenGL calls over DX12
 
 Game files have been configured to load from `E:\sab2\` on this fork.
 
