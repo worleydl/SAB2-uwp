@@ -3,9 +3,9 @@
 #include "SDL2/SDL.h"
 #include "../NewSonicThing/src/engineTester/main.hpp"
 
-// You can locally declare a SDL_main function or call to a DLL export (mingw works nice for this) 
 int SDL_main(int argc, char* argv[])
 {
+    // This project is an uncommon mashup of SDL and glfw, using the SDL main wrapper gets us a lot of handy UWP event handling for free
     return SAB2::ExternalEntry(0, 0);
 }
 

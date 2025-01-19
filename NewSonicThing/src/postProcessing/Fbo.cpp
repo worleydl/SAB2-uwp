@@ -76,15 +76,18 @@ void Fbo::resolveToFbo(int readBuffer, Fbo* outputFbo)
 void Fbo::initialiseFrameBuffer(int type)
 {
     createFrameBuffer();
+#ifndef _UWP
     if (multisampleAndMultiTarget)
     {
         colorBuffer = createMultisampleColorAttatchment(GL_COLOR_ATTACHMENT0);
         colorBuffer2 = createMultisampleColorAttatchment(GL_COLOR_ATTACHMENT1);
     }
     else
+#else
     {
         createTextureAttachment();
     }
+#endif
     
     if (type == DEPTH_RENDER_BUFFER) 
     {
@@ -145,7 +148,7 @@ GLuint Fbo::createMultisampleColorAttatchment(int attachment)
 {
     glGenRenderbuffers(1, &colorBuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, colorBuffer);
-    glRenderbufferStorage(GL_RENDERBUFFER, GL_RGBA8, width, height);
+    glRenderbufferStorageMultisample(GL_RENDERBUFFER, Display::AA_SAMPLES, GL_RGBA8, width, height);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, attachment, GL_RENDERBUFFER, colorBuffer);
     return colorBuffer;
 }
@@ -155,7 +158,8 @@ void Fbo::createDepthBufferAttachment()
     glGenRenderbuffers(1, &depthBuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, depthBuffer);
     
-    if (!multisampleAndMultiTarget || true)
+#ifndef _UWP
+    if (!multisampleAndMultiTarget)
     {
         glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, width, height); //depth bits
     }
@@ -163,6 +167,9 @@ void Fbo::createDepthBufferAttachment()
     {
         glRenderbufferStorageMultisample(GL_RENDERBUFFER, Display::AA_SAMPLES, GL_DEPTH_COMPONENT24, width, height);  //depth bits
     }
+#else
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, width, height); //depth bits
+#endif
     
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthBuffer);
 }

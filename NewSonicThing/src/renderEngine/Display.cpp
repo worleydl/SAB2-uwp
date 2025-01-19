@@ -30,6 +30,11 @@ int Display::AA_SAMPLES = 4;
 
 extern float input_zoom_buffer;
 
+#ifdef _UWP
+extern "C" __declspec(dllimport) float uwp_GetRefreshRate();
+extern "C" __declspec(dllimport) void uwp_GetScreenSize(int*, int*);
+#endif
+
 int Display::createDisplay()
 {
     // glfw: initialize and configure
@@ -140,7 +145,7 @@ int Display::createDisplay()
     glEnable(GL_MULTISAMPLE);
 
     //Center the window
-/*
+#ifndef _UWP
     if (!Global::useFullscreen)
     {
         const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
@@ -157,7 +162,7 @@ int Display::createDisplay()
             glfwSetWindowPos(Display::window, xpos, ypos);
         }
     }
-*/
+#endif
 
     //glfwGetWindowAttrib(window, GLFW_SAMPLES);
     //printf("samples:   %d\n", glfwGetWindowAttrib(window, GLFW_SAMPLES));
@@ -292,6 +297,15 @@ void Display::loadDisplaySettings()
         }
         file.close();
     }
+#ifdef _UWP
+
+    int uwp_x, uwp_y;
+    uwp_GetScreenSize(&uwp_x, &uwp_y);
+    Global::useFullscreen = true;
+    Display::F_WIDTH = uwp_x;
+    Display::F_HEIGHT = uwp_y;
+    Display::F_HZ = std::ceil(uwp_GetRefreshRate());
+#endif
 }
 
 void Display::loadGraphicsSettings()

@@ -21,7 +21,11 @@ void usleep(long long microseconds)
         init = 1;
 
         // Increase the accuracy of the timer once.
+#ifndef _UWP
+        const HINSTANCE ntdll = LoadLibrary(L"ntdll.dll", 0);
+#else
         const HINSTANCE ntdll = LoadPackagedLibrary(L"ntdll.dll", 0);
+#endif
         if (ntdll != NULL)
         {
             typedef long(NTAPI* pNtQueryTimerResolution)(unsigned long* MinimumResolution, unsigned long* MaximumResolution, unsigned long* CurrentResolution);

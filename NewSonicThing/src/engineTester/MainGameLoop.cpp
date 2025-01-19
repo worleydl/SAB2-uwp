@@ -244,12 +244,13 @@ Extras*          Global::menuExtras          = nullptr;
 ResultsScreen*   Global::menuResults         = nullptr;
 Timer*           Global::mainHudTimer        = nullptr;
 
-extern "C" __declspec(dllimport) void uwp_GetBundleFilePath(char*, const char*);
-
-//int main(int argc, char** argv)
+#ifndef _UWP
+int main(int argc, char** argv)
+#else
 int SAB2::ExternalEntry(int argc, char** argv)
+#endif
 {
-/*
+#ifndef _UWP
     if (argc > 0)
     {
         Global::pathToEXE = argv[0];
@@ -262,16 +263,9 @@ int SAB2::ExternalEntry(int argc, char** argv)
         Global::pathToEXE = Global::pathToEXE.substr(0, idx + 1);
 #endif
     }
-        char bundle_path[256];
-        uwp_GetBundleFilePath(bundle_path, "");
-        Global::pathToEXE = std::string(bundle_path);
-        size_t pos = 0;
-        while ((pos = Global::pathToEXE.find("\\")) != std::string::npos) {
-            Global::pathToEXE.replace(pos, 1, "/");
-            pos += 1;
-		}
-*/
-    Global::pathToEXE = "";
+#else
+    Global::pathToEXE = "E:\\sab2\\";
+#endif
 
 #ifdef DEV_MODE
     std::thread listenThread(doListenThread);
